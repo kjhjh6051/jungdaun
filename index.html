@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>따뜻한 요양원 - 어르신의 편안한 안식처</title>
+    <!-- 구글 폰트: Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FEF9F3; /* 아이보리 배경 */
+            --primary-color: #8DA399; /* 세이지 그린 */
+            --secondary-color: #E29578; /* 부드러운 테라코타 */
+            --text-color: #2C3E50; /* 짙은 그레이 */
+            --light-text: #666;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* 공통 스타일 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        /* 헤더 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 히어로 섹션 */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1516733968668-dbdce39c46ef?auto=format&fit=crop&q=80&w=2070') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+        }
+
+        .btn-main:hover {
+            background-color: #7a8e84;
+        }
+
+        /* 소개 섹션 */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.05);
+        }
+
+        /* 프로그램 섹션 */
+        .program-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* 연락처 섹션 */
+        .contact-info {
+            text-align: center;
+            background-color: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        /* 모바일 대응 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">따뜻한 요양원</a>
+                <ul class="nav-links">
+                    <li><a href="#about">시설소개</a></li>
+                    <li><a href="#programs">운영프로그램</a></li>
+                    <li><a href="#contact">오시는 길</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>어르신의 편안한 안식처</h1>
+            <p>사랑과 정성으로 부모님을 모시겠습니다.</p>
+            <a href="#contact" class="btn-main">상담 문의하기</a>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2>시설 소개</h2>
+        <div class="about-grid">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1576765608524-28e348fc9295?auto=format&fit=crop&q=80&w=2069" alt="요양원 내부">
+            </div>
+            <div class="about-text">
+                <h3>편안하고 쾌적한 환경</h3>
+                <p>따뜻한 햇살이 가득한 거실과 어르신들의 편의를 고려한 침실 설계를 통해 내 집 같은 편안함을 드립니다. 전문 의료진과 사회복지사가 24시간 상주하며 세심한 케어를 약속드립니다.</p>
+                <br>
+                <p>저희 요양원은 어르신들의 존엄성과 행복을 최우선으로 생각합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" style="background-color: #f9fbf9;">
+        <div class="container">
+            <h2>운영 프로그램</h2>
+            <div class="program-cards">
+                <div class="card">
+                    <span class="card-icon">🩺</span>
+                    <h3>전문 간호 서비스</h3>
+                    <p>정기적인 건강 체크와 맞춤형 투약 관리로 건강한 생활을 돕습니다.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🎨</span>
+                    <h3>정서 지원 활동</h3>
+                    <p>미술, 음악, 원예 치료 등 다양한 인지 활동 프로그램을 운영합니다.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🍱</span>
+                    <h3>영양 맞춤 식단</h3>
+                    <p>어르신의 건강 상태에 맞춘 균형 잡힌 친환경 식단을 제공합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>오시는 길</h2>
+        <div class="contact-info">
+            <p><strong>주소:</strong> 서울특별시 행복구 사랑동 123-45 (따뜻한 요양원)</p>
+            <p><strong>전화번호:</strong> 02-123-4567</p>
+            <p><strong>상담 가능 시간:</strong> 평일 09:00 - 18:00</p>
+            <br>
+            <div style="background-color: #eee; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                <p>지도 영역 (추후 API 연동 가능)</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 따뜻한 요양원. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
