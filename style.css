@@ -100,7 +100,7 @@ nav {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-/* 소개 섹션 (수정 완료) */
+/* 소개 섹션 */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -116,7 +116,7 @@ nav {
 
 .about-img img {
     width: 100%;
-    height: 350px;
+    height: 300px;
     border-radius: 20px;
     box-shadow: 10px 10px 20px rgba(0,0,0,0.05);
     object-fit: cover;
@@ -126,7 +126,7 @@ nav {
 /* 프로그램 섹션 */
 .program-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
@@ -156,7 +156,7 @@ nav {
     color: var(--primary-color);
 }
 
-/* 마당 섹션 */
+/* 마당 섹션 (PC 기준 3열 정렬 고정) */
 .yard-section {
     text-align: center;
     background-color: var(--white);
@@ -164,15 +164,15 @@ nav {
 
 .yard-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
     margin-top: 30px;
 }
 
 .yard-item {
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     transition: transform 0.3s ease;
 }
 
@@ -182,7 +182,7 @@ nav {
 
 .yard-item img {
     width: 100%;
-    height: 300px;
+    height: 260px;
     object-fit: cover;
     display: block;
 }
@@ -227,7 +227,13 @@ footer {
     text-align: center;
 }
 
-/* 모바일 대응 */
+/* 모바일 및 태블릿 대응 */
+@media (max-width: 992px) {
+    .program-cards, .yard-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -236,6 +242,9 @@ footer {
         font-size: 2.5rem;
     }
     .about-grid {
+        grid-template-columns: 1fr;
+    }
+    .program-cards, .yard-gallery {
         grid-template-columns: 1fr;
     }
 }
